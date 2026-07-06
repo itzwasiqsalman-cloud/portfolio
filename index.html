@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Wasiq Salman — Portfolio</title>
+  <meta name="description" content="Muhammad Wasiq Salman. Building towards improving media literacy.">
+
+  <!-- Fonts: Fraunces (display) · Inter (body) · IBM Plex Sans (utility) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Inter:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <!--
+    To try Instrument Sans as the utility font instead of IBM Plex Sans:
+    1. Swap the <link> above for this one:
+       <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&family=Inter:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    2. Change the single `--font-utility` line at the top of styles.css.
+  -->
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Film-grain overlay: fixed, non-interactive, sits above the background
+       but below all content (see .grain in styles.css). -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <nav class="site-nav" aria-label="Main">
+      <a class="site-nav__brand" href="#hero">Muhammad Wasiq Salman</a>
+      <ul class="site-nav__links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#certificates">Certificates</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================= HERO ============================= -->
+    <section class="hero" id="hero">
+      <div class="container">
+        <p class="eyebrow reveal">PORTFOLIO</p>
+        <h1 class="hero__name reveal">Muhammad Wasiq Salman</h1>
+        <p class="hero__statement reveal">Building towards improving media literacy.</p>
+      </div>
+      <a class="hero__scroll-cue" href="#about" aria-label="Scroll to About section">
+        <span class="hero__scroll-label">SCROLL</span>
+        <span class="hero__scroll-line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- ============================= ABOUT ============================ -->
+    <section class="section" id="about">
+      <div class="container">
+        <p class="eyebrow reveal">ABOUT</p>
+        <h2 class="section__title reveal">A little about me</h2>
+        <div class="about__bio reveal">
+          <p>
+            I build tools and conduct research on misinformation, how it spreads, and
+            what it takes to counter it. My work in the field has been reviewed and
+            certified by senior experts at organizations that lead the fight against it,
+            and as a TKS Innovate graduate I've learned to turn early ideas into things
+            that actually ship. I put that work to the test in public: I compete in
+            hackathons and competitions, and I win them.
+          </p>
+          <p>
+            Building is only half of it. I write to think problems through, I perform,
+            and I shoot photography, disciplines that look separate but sharpen the
+            same instincts: noticing what others miss, and caring enough to get the
+            details right.
+          </p>
+        </div>
+
+        <!-- Photo collage. To swap pictures, replace the files in assets/collage/
+             (or point these src attributes at new ones). -->
+        <ul class="about__collage reveal" id="about-collage">
+          <li><img src="assets/collage/collage-1.jpg" alt="Muhammad Wasiq Salman" loading="lazy"></li>
+          <li><img src="assets/collage/collage-2.jpg" alt="Muhammad Wasiq Salman" loading="lazy"></li>
+          <li><img src="assets/collage/collage-3.jpg" alt="Muhammad Wasiq Salman" loading="lazy"></li>
+          <li><img src="assets/collage/collage-4.jpg" alt="Muhammad Wasiq Salman" loading="lazy"></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== CERTIFICATES & ACHIEVEMENTS ===================== -->
+    <section class="section" id="certificates">
+      <div class="container">
+        <p class="eyebrow reveal">CERTIFICATES &amp; ACHIEVEMENTS</p>
+        <h2 class="section__title reveal">Proof of the miles</h2>
+        <!-- Populated from the CERTIFICATES array in script.js -->
+        <ul class="cert-grid reveal" id="cert-grid"></ul>
+      </div>
+    </section>
+
+    <!-- ============================ PROJECTS =========================== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <p class="eyebrow reveal">PROJECTS</p>
+        <h2 class="section__title reveal">Selected work</h2>
+
+        <div class="filters reveal" role="group" aria-label="Filter projects by category">
+          <button class="filters__button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filters__button" data-filter="build" aria-pressed="false">Build</button>
+          <button class="filters__button" data-filter="write" aria-pressed="false">Write</button>
+          <button class="filters__button" data-filter="perform" aria-pressed="false">Perform</button>
+          <button class="filters__button" data-filter="photography" aria-pressed="false">Photography</button>
+        </div>
+
+        <!-- Populated from the PROJECTS array in script.js -->
+        <ul class="project-grid reveal" id="project-grid"></ul>
+
+        <!-- Photography flip cards (populated from the PHOTOS array in script.js).
+             Shown under the All and Photography filters. Hover, tap, or press
+             Enter on a card to flip it. -->
+        <ul class="photo-grid reveal" id="photo-grid"></ul>
+      </div>
+    </section>
+
+    <!-- ============================ CONTACT ============================ -->
+    <section class="section section--contact" id="contact">
+      <div class="container">
+        <p class="eyebrow reveal">CONTACT</p>
+        <h2 class="section__title reveal">Let's make something</h2>
+        <a class="contact__email reveal" href="mailto:itzwasiq.salman@gmail.com">itzwasiq.salman@gmail.com</a>
+        <!-- Populated from the SOCIAL_LINKS array in script.js -->
+        <ul class="social" id="social-links"></ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="footer-year">2026</span> Muhammad Wasiq Salman. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox for certificate images (hidden until opened) -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Certificate viewer" hidden>
+    <button class="lightbox__close" id="lightbox-close" aria-label="Close certificate viewer">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M5 5l14 14M19 5L5 19"/>
+      </svg>
+    </button>
+    <figure class="lightbox__figure">
+      <img class="lightbox__image" id="lightbox-image" src="" alt="">
+      <figcaption class="lightbox__caption" id="lightbox-caption"></figcaption>
+    </figure>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
