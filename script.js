@@ -105,7 +105,7 @@ const CERTIFICATES = [
     issuer: "IKLC",
     description:
       "An international linguistics competition for English. Bronze medallist two years in a row.",
-    image: "assets/certificates/certificate-5.svg", // [PLACEHOLDER image: replace when you have an IKLC visual]
+    image: null, // add a path here when you have an IKLC visual
   },
 ];
 
