@@ -245,13 +245,51 @@ main,
 /* ============================================================
    HERO
    ============================================================ */
+/* The extra height is the scroll runway that drives the video reveal */
 .hero {
-  min-height: 100svh;
+  height: calc(100svh + 1500px);
+  position: relative;
+}
+
+.hero__sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Video layer: clipped to a centered window that JS expands on scroll */
+.hero__media {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(25% 25%, 75% 25%, 75% 75%, 25% 75%);
+}
+
+.hero__video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.6);
+  will-change: transform;
+}
+
+/* Keeps the centered text readable against the moving footage */
+.hero__scrim {
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--bg) 55%, transparent);
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  position: relative;
-  padding-top: 4rem;
+  align-items: center;
+  text-align: center;
 }
 
 .hero__name {
@@ -916,6 +954,15 @@ main,
 
   .hero__scroll-line {
     animation: none;
+    transform: none;
+  }
+
+  /* show the full frame with no scroll choreography */
+  .hero__media {
+    clip-path: none !important;
+  }
+
+  .hero__video {
     transform: none;
   }
 

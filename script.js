@@ -485,6 +485,38 @@ function initReveals() {
   window.addEventListener("scroll", sweep, { passive: true });
 }
 
+/* ---------- Hero video scroll reveal ----------
+   Vanilla port of the SmoothScrollHero effect: the video starts in a
+   centered clipped window (25% - 75%) that expands to full screen over
+   the first 1500px of scroll, while the footage slowly zooms out. */
+function initHeroScroll() {
+  const media = document.querySelector(".hero__media");
+  const video = document.querySelector(".hero__video");
+  if (!media || !video) return;
+
+  if (prefersReducedMotion.matches) {
+    video.removeAttribute("autoplay");
+    video.pause();
+    return; // CSS already shows the full, static frame
+  }
+
+  const SCROLL_LENGTH = 1500;
+
+  const update = () => {
+    const y = window.scrollY;
+    const progress = Math.min(y / SCROLL_LENGTH, 1);
+    const start = 25 * (1 - progress); // 25% -> 0%
+    const end = 75 + 25 * progress;    // 75% -> 100%
+    media.style.clipPath =
+      `polygon(${start}% ${start}%, ${end}% ${start}%, ${end}% ${end}%, ${start}% ${end}%)`;
+    const zoom = 1.6 - 0.6 * Math.min(y / (SCROLL_LENGTH + 500), 1); // 1.6 -> 1
+    video.style.transform = `scale(${zoom})`;
+  };
+
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+}
+
 /* ---------- Nav border on scroll ---------- */
 function initHeader() {
   const header = document.querySelector(".site-header");
@@ -503,4 +535,5 @@ renderProjects();
 initFilters();
 renderSocialLinks();
 initReveals();
+initHeroScroll();
 initHeader();

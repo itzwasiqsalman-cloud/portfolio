@@ -41,17 +41,28 @@
 
   <main>
 
-    <!-- ============================= HERO ============================= -->
+    <!-- ============================= HERO =============================
+         Scroll-driven hero: the video starts inside a clipped window that
+         expands to full screen as you scroll (see initHeroScroll in
+         script.js). The text layer sits above the clip so the name and
+         subheading stay centered and fully visible throughout. -->
     <section class="hero" id="hero">
-      <div class="container">
-        <p class="eyebrow reveal">PORTFOLIO</p>
-        <h1 class="hero__name reveal">Muhammad Wasiq Salman</h1>
-        <p class="hero__statement reveal">Building towards improving media literacy.</p>
+      <div class="hero__sticky">
+        <div class="hero__media" aria-hidden="true">
+          <video class="hero__video" src="assets/motion-recording.mp4"
+                 autoplay muted loop playsinline preload="auto"></video>
+          <div class="hero__scrim"></div>
+        </div>
+        <div class="container hero__content">
+          <p class="eyebrow reveal">PORTFOLIO</p>
+          <h1 class="hero__name reveal">Muhammad Wasiq Salman</h1>
+          <p class="hero__statement reveal">Building towards improving media literacy.</p>
+        </div>
+        <a class="hero__scroll-cue" href="#about" aria-label="Scroll to About section">
+          <span class="hero__scroll-label">SCROLL</span>
+          <span class="hero__scroll-line" aria-hidden="true"></span>
+        </a>
       </div>
-      <a class="hero__scroll-cue" href="#about" aria-label="Scroll to About section">
-        <span class="hero__scroll-label">SCROLL</span>
-        <span class="hero__scroll-line" aria-hidden="true"></span>
-      </a>
     </section>
 
     <!-- ============================= ABOUT ============================ -->
